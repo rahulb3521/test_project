@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>React App</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-git.min.js"></script>
+</head>
+
+<body>
+    <h1>Header color to be changed</h1>
+    <p>Same plugin should hide this element</p>
+    <button class="myplugin">My plugin</button>
+    <button class="reset">Reset</button>
+</body>
+<script type="text/javascript">
+(function($) {
+
+    $.fn.changeColor = function() {
+        this.css("color", "red");
+        this.next('p').css("display", "none");
+        return this;
+    };
+
+    $.fn.resetColor = function() {
+        this.css("color", "black");
+        this.next('p').css("display", "block");
+        return this;
+    }
+
+}(jQuery));
+$('.myplugin').click(function() {
+    $("h1").changeColor();
+})
+$('.reset').click(function() {
+    $("h1").resetColor();
+})
+</script>
+
+</html>
