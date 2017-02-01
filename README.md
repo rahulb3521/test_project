@@ -1,1 +1,1 @@
-# test_project
+# Sample React Js project
